@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_adminlte',
+    'django_adminlte_theme',
     'Boo_commander',
 ]
 
@@ -127,3 +129,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR,'/static')
+#STATICFILES_DIR = [
+#    os.path.join(BASE_DIR,'static')
+#]
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+"""
+测试过程中开发服务器使用的配置，实际使用中，这部分由nginx负责。这么写的原因是因为
+django的开发服务器无法对文件进行遍历，因此这里对目录进行声明，并替换掉最后的‘/‘标记
+"""
+
+STATICFILES_DIRS = (
+    ('css',os.path.join(STATIC_ROOT,'css').replace('\\','/') ),
+    ('js',os.path.join(STATIC_ROOT,'js').replace('\\','/') ),
+    ('images',os.path.join(STATIC_ROOT,'images').replace('\\','/') ),
+    ('fonts',os.path.join(STATIC_ROOT,'fonts').replace('\\','/') ),
+)
+
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder"
+)
