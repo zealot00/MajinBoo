@@ -1,5 +1,24 @@
-{% extends 'base.html' %}
-{% block title %}MajinBoo{% endblock %}
+{% load static %}<!DOCTYPE html>
+<html>
+<head>
+    {% block title_outer %}
+        <title>{% block title %}{{ site.name }}{% endblock %}</title>
+    {% endblock %}
+
+    {% block meta %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    {% endblock %}
+
+    {% block stylesheets %}
+        {% include 'adminlte/lib/_styles.html' %}
+    {% endblock %}
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="hold-transition skin-blue sidebar-mini {% block body_class %}{% block bodyclass %}{% endblock %}{% endblock %}">
+
 {% block body %}
     <div class="wrapper">
         {% block nav_header %}
@@ -47,3 +66,11 @@
 
     </div>
 {% endblock body %}
+
+{% block javascript %}
+{% include 'adminlte/lib/_scripts.html' %}
+{% endblock %}
+
+{% block extra_foot %}{% endblock %}
+</body>
+</html>

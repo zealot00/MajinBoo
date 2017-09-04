@@ -3,6 +3,8 @@
 
 __author = 'zealot'
 
+
+
 from django.conf.urls import include,url
 import views
 
@@ -11,7 +13,5 @@ import views
 
 
 urlpatterns = [
-    url(r'^$',view=views.index,name="index"),
-    #url(r'/login',view=views.login,name="login"),
-    url(r'^login/',view=views.login),
+    url(r'^gethello',view=views.gethello),
 ]
