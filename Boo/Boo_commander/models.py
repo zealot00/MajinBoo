@@ -6,6 +6,10 @@ from django.db import models
 # Create your models here.
 
 
+methods = (
+    ('level1','GET'),
+    ('level2','POST'),
+)
 class Boo_commander(models.Model):
 
     work_name = models.CharField(max_length=20) #爬虫名称

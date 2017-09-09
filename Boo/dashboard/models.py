@@ -26,6 +26,9 @@ class Systemuser(models.Model):
     username = models.CharField(max_length=32)
     password = models.CharField(max_length=32)
 
+    def __unicode__(self):
+        return self.username
+
     def make_password(self,password):
         try:
             if types(password) is types.StringType:
@@ -39,7 +42,21 @@ class Systemuser(models.Model):
         except Exception,e:
             return False
 
+
     class Meta:
         db_table = "systemuser"
 
 
+def make_password(password):
+    try:
+        if password and len(password) > 0:
+            md5 = hashlib.md5()
+            salt = "wocaonidaye"
+            md5.update(password+salt)
+            md5_password = md5.hexdigest()
+            md5.update(md5_password)
+            md5_password_f = md5.hexdigest()
+            return md5_password_f
+    except Exception,e:
+        print e
+        return False

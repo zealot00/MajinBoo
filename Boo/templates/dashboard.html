@@ -1,49 +1,49 @@
-{% extends 'base.html' %}
-{% block title %}MajinBoo{% endblock %}
-{% block body %}
-    <div class="wrapper">
-        {% block nav_header %}
-            {% include 'adminlte/lib/_main_header.html' %}
-        {% endblock %}
+{% extends 'adminlte/base.html' %}
+<title> {% block title %} MajinBoo{% endblock %}</title>
 
-        {% block nav_sidebar %}
-            {% include 'adminlte/lib/_main_sidebar.html' %}
-        {% endblock %}
 
-        {% block content_wrapper %}
-        <div class="content-wrapper">
-            {% block content_header %}
-                <section class="content-header">
-                    <h1>
-                        {% block page_name %}{% endblock %}
-                        {% block no_description %}
-                        <small>{% block page_description %}{% endblock %}</small>
-                        {% endblock %}
-                    </h1>
-                    {% block breadcrumbs %}
-                        {# Breadcrumb implementation left to developers #}
-                    {% endblock %}
-                </section>
-            {% endblock %}
+{% block nav_header %}
+    {% include 'header.html' %}
+{% endblock nav_header %}
 
-            {% block content_outer %}
-            <section class="content">
-                {% block messages %}
-                    {% include 'adminlte/lib/_messages.html' %}
+{% block nav_sidebar %}
+    {% include 'main-sidebar.html' %}
+{% endblock nav_sidebar %}
+
+{% block content_wrapper %}
+<div class="content-wrapper">
+    {% block content_header %}
+        <section class="content-header">
+            <h1>
+                {% block page_name %}test  page{% endblock %}
+                {% block no_description %}
+                <small>{% block page_description %}{{ hello }}{% endblock %}</small>
                 {% endblock %}
-
-                {% block content_block_wrap %}
-                    {% block content %}{% endblock %}
-                {% endblock %}
-            </section>
+            </h1>
+            {% block breadcrumbs %}
+                {# Breadcrumb implementation left to developers #}
             {% endblock %}
-
-        </div>
-        {% endblock content_wrapper %}
-
-        {% block nav_footer %}
-            {% include 'adminlte/lib/_main_footer.html' %}
+        </section>
+    {% endblock %}
+    {% block content_outer %}
+    <section class="content">
+        {% block messages %}
+            {% include 'adminlte/lib/_messages.html' %}
         {% endblock %}
 
-    </div>
-{% endblock body %}
+        {% block content_block_wrap %}
+            {% block content %}
+                <form action="boo/create_boo" method="POST">
+                <div class="fieldWapper">
+                {%  for field in form %}
+                    <p>{{ field.label }} : {{ field }} </p>
+
+                {% endfor %}
+                </div>
+                </form>
+            {% endblock %}
+        {% endblock %}
+    </section>
+    {% endblock %}
+</div>
+{% endblock content_wrapper %}
