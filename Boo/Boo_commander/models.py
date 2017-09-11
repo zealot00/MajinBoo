@@ -7,11 +7,12 @@ from django.db import models
 
 
 methods = (
-    ('level1','GET'),
-    ('level2','POST'),
+    ('GET','GET'),
+    ('POST','POST'),
 )
 class Boo_commander(models.Model):
 
+    id = models.AutoField(primary_key=True) # 自增主键
     work_name = models.CharField(max_length=20) #爬虫名称
     methods = models.CharField(max_length=32) #爬虫爬取方式
     request_url = models.CharField(max_length=1024) #URL里面目前长度匹配1024字节，切记

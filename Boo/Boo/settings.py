@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'Boo_commander',
     'dashboard',
     'api',
+    'tasks',
+    'django_tables2',
 ]
 
 MIDDLEWARE = [

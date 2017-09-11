@@ -1,4 +1,6 @@
 {% extends 'adminlte/base.html' %}
+{% load render_table from django_tables2 %}
+{% load static %}
 <title> {% block title %} MajinBoo{% endblock %}</title>
 
 
@@ -30,18 +32,14 @@
         {% block messages %}
             {% include 'adminlte/lib/_messages.html' %}
         {% endblock %}
-<!--
+
         {% block content_block_wrap %}
             {% block content %}
-                <form action="boo/create_boo" method="POST">
-                <div class="fieldWapper">
-                {%  for field in form %}
-                    <p>{{ field.label }} : {{ field }} </p>
-                {% endfor %}
+                <div>
+                {% render_table tables %}
                 </div>
-                </form>
             {% endblock %}
-        {% endblock %} -->
+        {% endblock %}
     </section>
     {% endblock %}
 </div>
