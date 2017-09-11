@@ -15,9 +15,9 @@
     {% block content_header %}
         <section class="content-header">
             <h1>
-                {% block page_name %}test  page{% endblock %}
+                {% block page_name %}{{ page_name }}{% endblock %}
                 {% block no_description %}
-                <small>{% block page_description %}{{ hello }}{% endblock %}</small>
+                <small>{% block page_description %}{{ small }}{% endblock %}</small>
                 {% endblock %}
             </h1>
             {% block breadcrumbs %}

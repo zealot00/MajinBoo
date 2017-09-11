@@ -12,6 +12,5 @@ import views
 
 urlpatterns = [
     url(r'^$',view=views.index,name="index"),
-    #url(r'/login',view=views.login,name="login"),
     url(r'^login/',view=views.login),
 ]

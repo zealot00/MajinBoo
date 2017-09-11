@@ -23,7 +23,7 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('',include('dashboard.urls'),),
+    url(r'^$',include('dashboard.urls'),),
     url(r'^api/',include('api.urls')),
     url(r'^boo/',include('Boo_commander.urls')),
 #    url(r'^login/',include('dashboard.urls'))

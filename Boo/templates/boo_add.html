@@ -15,9 +15,9 @@
     {% block content_header %}
         <section class="content-header">
             <h1>
-                {% block page_name %}test  page{% endblock %}
+                {% block page_name %}创建机器人{% endblock %}
                 {% block no_description %}
-                <small>{% block page_description %}{{ hello }}{% endblock %}</small>
+                <small>{% block page_description %}{{ small }}{% endblock %}</small>
                 {% endblock %}
             </h1>
             {% block breadcrumbs %}
@@ -30,18 +30,20 @@
         {% block messages %}
             {% include 'adminlte/lib/_messages.html' %}
         {% endblock %}
-<!--
+
         {% block content_block_wrap %}
             {% block content %}
                 <form action="boo/create_boo" method="POST">
+                {% csrf_token %}
                 <div class="fieldWapper">
                 {%  for field in form %}
                     <p>{{ field.label }} : {{ field }} </p>
                 {% endfor %}
+                <input type="submit" value="提交">
                 </div>
                 </form>
             {% endblock %}
-        {% endblock %} -->
+        {% endblock %}
     </section>
     {% endblock %}
 </div>
