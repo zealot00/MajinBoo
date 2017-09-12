@@ -12,4 +12,10 @@ class Boo(tables.Table):
     class Meta:
         model = Boo_commander
         #attrs = {'class' : 'paleblue','table':'border cellpadding=10'}
-        attrs = {'class' : 'paleblue'}
+        attrs = {'class' : 'paleblue',
+                 'cellpadding' : 10,
+                 'align' : 'left',
+                         'td' :{
+                         'align' :'center'
+                         }
+                 }

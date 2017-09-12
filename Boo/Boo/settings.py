@@ -45,6 +45,12 @@ INSTALLED_APPS = [
     'api',
     'tasks',
     'django_tables2',
+    'crispy_forms',
+    'django_select2',
+    #'easy_thumbnails',
+    'image_cropping',
+    'django_ajax',
+    'cruds_adminlte',
 ]
 
 MIDDLEWARE = [
@@ -91,7 +97,11 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'password',
         'HOST': 'localhost',
-        'PORT': '3306'
+        'PORT': '3306',
+        'OPTIONS': {
+            'charset' : 'utf8',
+             #'init_command' : 'SET storage_engine = INNODB',
+        }
     }
 }
 
